@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Quiz Game- Let's Go!!</title>
+    <link rel="manifest" href="assets/favicon/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#6ec2b5" />
+  </head>
+  <body
+    id="main-container"
+    class="add-background-image flex-center flex flex-column"
+  >
+    <div
+      id="height-to-small-to-play"
+      class="justify-center flex flex-column glass text-center hidden"
+    >
+      <h1>This Quiz is best played in portrait mode on smaller devices.</h1>
+      <h2>Please rotate your device to <br />continue with the quiz</h2>
+    </div>
+    <div id="home-container-jsRef" class="flex-center flex flex-column glass">
+      <label class="logo">QUIZ GAME</label>
+      <p class="points-info text-center">
+        Please select a difficulty level before proceeding further
+      </p>
+      <div
+        id="points-information"
+        class="text-center points-information-scores"
+      ></div>
+      <select
+        name="difficulty level"
+        id="selectLevelRef"
+        class="btn-difficulty btn"
+        onchange="updateQuizLevel()"
+      >
+        <option value="easy" selected="selected">Difficulty - Easy</option>
+        <option value="medium">Difficulty - Medium</option>
+        <option value="hard">Difficulty - Hard</option>
+      </select>
+      <button id="btn-play-game-jsRef" class="btn">Play</button>
+      <button id="btn-view-high-scores-jsRef" class="btn">High Scores</button>
+    </div>
+    <div
+      id="quiz-container-jsRef"
+      class="justify-space-around flex flex-column glass hidden"
+    >
+      <div class="loadingSpinner-jsRef justify-center flex flex-column">
+        <h1>Loading</h1>
+        <p>Quiz questions</p>
+      </div>
+      <div id="sfx-control">
+        <div id="btn-mute-jsRef" class="hidden">
+          <i class="fas fa-volume-up"></i>
+        </div>
+        <div id="btn-unmute-jsRef" class="hidden">
+          <i class="fas fa-volume-mute"></i>
+        </div>
+      </div>
+      <label class="logo">QUIZ GAME</label>
+      <h2 id="question-jsRef" class="question-text">
+        What have I got in my pocket?
+      </h2>
+      <div id="answer-container-1-jsRef" class="answers-container">
+        <p class="answers-prefix">A</p>
+        <p class="answers-text-jsRef" data-number="1">handses</p>
+      </div>
+      <div id="answer-container-2-jsRef" class="answers-container">
+        <p class="answers-prefix">B</p>
+        <p class="answers-text-jsRef" data-number="2">knife</p>
+      </div>
+      <div id="answer-container-3-jsRef" class="answers-container">
+        <p class="answers-prefix">C</p>
+        <p class="answers-text-jsRef" data-number="3">String, or nothing!</p>
+      </div>
+      <div id="answer-container-4-jsRef" class="answers-container">
+        <p class="answers-prefix">D</p>
+        <p class="answers-text-jsRef" data-number="4">A ring</p>
+      </div>
+      <div id="progress">
+        <div id="progress-item">
+          <p id="progressText-jsRef" class="progress-prefix">Question</p>
+          <div id="progressBar">
+            <div id="progressBarFull-jsRef"></div>
+          </div>
+        </div>
+        <div>
+          <p class="progress-prefix">Score</p>
+          <h2 class="progress-main-text" id="score-jsRef">0</h2>
+        </div>
+      </div>
+      <div id="exit-quiz-options-jsRef" class="flex flex-column flex-center">
+        <button class="btn btn-exit-quiz" type="button">Exit Quiz</button>
+      </div>
+    </div>
+    <div
+      id="user-final-score-container-jsRef"
+      class="flex-center flex flex-column glass hidden"
+    >
+      <label class="logo">QUIZ GAME</label>
+      <h1>High Scores</h1>
+      <div id="high-scores-lists">
+        <ul class="endGameHighScoresList-jsRef high-scores-lists"></ul>
+      </div>
+      <h3 id="playerFinalScore-jsRef">0</h3>
+      <form>
+        <input
+          type="text"
+          name="username"
+          id="playername-jsRef"
+          placeholder="Name"
+        />
+        <button type="submit" class="btn" id="btn-save-score-jsRef" disabled>
+          Submit score
+        </button>
+        <button
+          type="submit"
+          id="btn-view-home-screen-jsRef"
+          class="exit-reset-game-btn btn"
+        >
+          Play Again
+        </button>
+      </form>
+    </div>
+    <div
+      id="high-score-container-jsRef"
+      class="flex-center flex flex-column glass hidden"
+    >
+      <label class="logo">QUIZ GAME</label>
+      <h1>High Scores</h1>
+      <div id="prev-high-scores-lists">
+        <ul class="highScoresList-jsRef high-scores-lists"></ul>
+      </div>
+      <button id="btn-return-to-home-screen-jsRef" class="btn">
+        Play Quiz
+      </button>
+    </div>
+    <div
+      id="exit-quiz-container-jsRef"
+      class="flex-center flex flex-column glass text-center hidden"
+    >
+      <h1>Are you sure you would like to exit the quiz?</h1>
+      <p>
+        Your game progress will be lost and you will be returned to the home
+        screen
+      </p>
+      <button id="btn-exit-game-jsRef" class="btn exit-game-button">
+        Return home
+      </button>
+      <button id="btn-continue-playing-jsRef" class="btn continue-game-button">
+        Continue playing
+      </button>
+    </div>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
